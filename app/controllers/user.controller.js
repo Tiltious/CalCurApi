@@ -3,8 +3,7 @@ const User = db.user;
 
 exports.allAccess = (req, res) => {
   //res.status(200).send("Public Content.");
-  const data = User.find({}).exec((err,res1)=>res.json(res1));
-  console.log(data);
+  User.find({}).exec((err,res1)=>res.json(res1));
 };
 
 exports.userBoard = (req, res) => {
