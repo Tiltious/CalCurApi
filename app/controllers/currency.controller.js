@@ -18,7 +18,7 @@ exports.editCurrency = (req,res)=>{
         (err,curr)=>{
             if(err){res.status(500).send({message:err});return;}
             if(!curr){res.status(404).send({message:'Currency not found'});return;}
-            res.status(200).send('Currency updated successfully!');
+            res.status(200).send({message: 'Currency updated successfully!'});
         })
     
 }
