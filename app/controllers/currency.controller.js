@@ -11,6 +11,25 @@ exports.getAllCurrencies = (req,res)=>{
     )
 }
 
+exports.addNewCurrency = (req,res)=>{
+    const currency = new Currency({
+        code: req.body.code,
+        alphaCode: req.body.alphaCode,
+        numericCode: req.body.numericCode,
+        name: req.body.name,
+        rate: req.body.rate,
+        date: req.body.date,
+        inverseRate: req.body.inverseRate
+    })
+    currency.save((err,newcur)=>{
+        if (err) {
+            res.status(500).send({ message: err });
+            return;
+        }
+        res.status(200).send({ message: "Currency was registered successfully!" });
+    })
+}
+
 exports.editCurrency = (req,res)=>{
     Currency.findByIdAndUpdate(
         req.params._id,

@@ -15,6 +15,8 @@ module.exports = function(app) {
   
   app.get('/api/curr/allCurrEdit',[verifyToken,isAdmin],controller.getAllCurrencies);
 
+  app.post('/api/curr/addCurr',[verifyToken,isAdmin],controller.addNewCurrency);
+
   app.put('/api/curr/currForEdit/:_id',[verifyToken,isAdmin],controller.editCurrency);
 
 }
